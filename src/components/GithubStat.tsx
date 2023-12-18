@@ -15,6 +15,8 @@ type GithubStatProps = {
   languageUrl: string;
   updatedAt: string;
   star: string;
+  cloneUrl: string;
+  repoUrl: string;
 };
 
 const GithubStat = ({
@@ -23,6 +25,8 @@ const GithubStat = ({
   languageUrl,
   updatedAt,
   star,
+  cloneUrl,
+  repoUrl,
 }: GithubStatProps) => {
   const [languages, setLanguages] = useState<LanguageStats>({});
   const [totalLang, setTotalLang] = useState(0);
@@ -53,16 +57,20 @@ const GithubStat = ({
         <h2 className='font-bold text-lg'>{repoName}</h2>
         <p>{description}</p>
         <div className='flex items-center justify-start gap-5'>
-          <a className='p-2 px-4 border-gray-600 border-solid border-[1px] cursor-pointer text-gray-600 rounded-lg flex justify-normal gap-2 items-center hover:bg-gray-700'>
+          <a
+            className='p-2 px-4 border-gray-600 border-solid border-[1px] cursor-pointer text-gray-600 rounded-lg flex justify-normal gap-2 items-center hover:bg-gray-700 hover:text-white'
+            href={cloneUrl}>
             <FontAwesomeIcon
               className={'text:gray hover:text-white'}
               icon={faGithub}
             />{' '}
             Clone Repo
           </a>
-          <a className='p-2 px-3 border-gray-600 border-solid border-[1px] cursor-pointer text-gray-600 rounded-lg flex justify-normal gap-2 items-center hover:bg-gray-700'>
+          <a
+            className='p-2 px-3 border-gray-600 border-solid border-[1px] cursor-pointer text-gray-600 rounded-lg flex justify-normal gap-2 items-center hover:text-white hover:bg-gray-700'
+            href={repoUrl}>
             <FontAwesomeIcon
-              className={'text:gray hover:text-white'}
+              className={'text:gray'}
               icon={faGithub}
             />{' '}
             Repo
@@ -75,18 +83,28 @@ const GithubStat = ({
           <p>Languages:</p>
           {Boolean(totalLang) ? (
             Object.keys(languages).map((language) => (
-              <p key={language}>
+              <p
+                key={language}
+                className='font-semibold'>
                 {language}:{' '}
                 {((languages[language] / totalLang) * 100).toFixed(2)}%
               </p>
             ))
           ) : (
-            <>Not found</>
+            <>Project has yet to deploy</>
           )}
         </div>
         <p></p>
         <div className='flex items-center gap-4'>
-          <button>Stars</button>
+          <a
+            href={star}
+            className='flex p-2 px-3 border-[1px] border-gray-500 items-center rounded-md justify-start gap-2 hover:text-white hover:bg-gray-600'>
+            <FontAwesomeIcon
+              className={'text:gray'}
+              icon={faGithub}
+            />
+            <div>Stars</div>
+          </a>
           <p className=''>Updated on {formattedDate}</p>
         </div>
       </div>

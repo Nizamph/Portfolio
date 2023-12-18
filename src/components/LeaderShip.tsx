@@ -20,7 +20,9 @@ const LeaderShip = () => {
   }, [crouselVisibility]);
   return (
     <div className='w-full h-[450px] flex flex-col justify-center items-center gap-10 px-28'>
-      <h1 className='text-center text-6xl text-gray-500'>LeaderShip</h1>
+      <h1 className='text-center text-6xl font-light text-black '>
+        LeaderShip
+      </h1>
       <div className='flex items-center justify-start gap-4 w-full h-full'>
         <p className='text-gray-500 h-full'>
           As a React developer with leadership experience, I bring technical

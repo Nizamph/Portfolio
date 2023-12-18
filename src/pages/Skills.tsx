@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProgressBar from './ProgressBar';
+import ProgressBar from '../components/ProgressBar';
 import { techSkill, softSkill } from '@/constants/constants';
 
 const Skills = () => {
@@ -14,7 +14,7 @@ const Skills = () => {
   return (
     <div className='w-full flex flex-col items-center justify-center  h-[546px]'>
       <div className='flex flex-col gap-11 p-10'>
-        <h1 className='text-6xl text-center '>Skills</h1>
+        <h1 className='text-6xl font-light text-black  text-center '>Skills</h1>
         <div className='flex '>
           <button
             className={`${

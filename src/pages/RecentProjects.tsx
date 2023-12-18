@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import Card from './UI/Card';
-import GithubStat from './GithubStat';
+import Card from '../components/UI/Card';
+import GithubStat from '../components/GithubStat';
 import { useEffect } from 'react';
 import { GET_REPO_DETAILS } from '@/constants/constants';
 interface repoDetailsTypes {
+  clone_url: any;
   name: string | undefined;
   stargazers_url: string;
   description: string;
   languages_url: string;
   updated_at: string;
+  git_url: string;
   // Add other properties as needed
 }
 const RecentProjects = () => {
@@ -38,6 +40,8 @@ const RecentProjects = () => {
               description={itm?.description}
               languageUrl={itm?.languages_url}
               updatedAt={itm?.updated_at}
+              cloneUrl={itm?.clone_url}
+              repoUrl={itm?.git_url}
             />
           </>
         ))}

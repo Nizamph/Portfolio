@@ -1,6 +1,10 @@
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { IconDefinition, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 export type NavbarContentsType = {
   Projects: string;
-  Resume: string;
   About: string;
   Skills: string;
 };
@@ -11,9 +15,8 @@ export type crouselImagesType = {
 };
 
 export const NavbarContents: NavbarContentsType = {
-  Projects: 'Projects',
-  Resume: 'Resume',
-  About: 'About',
+  Projects: 'RecentProjects',
+  About: 'AboutMe',
   Skills: 'Skills',
 };
 
@@ -118,4 +121,12 @@ export const softSkill: { id: string; skill: string; percentage: number }[] = [
     skill: 'critical Thinking',
     percentage: 95,
   },
+];
+
+export const icons: IconDefinition[] = [
+  faEnvelope,
+  faFacebook,
+  faGithub,
+  faInstagram,
+  faLinkedinIn,
 ];
